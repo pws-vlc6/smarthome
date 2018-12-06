@@ -1,0 +1,11 @@
+{
+    "/pws/api/*": {
+      "target": "https://ebotech.nl",
+      "secure": true,
+      "pathRewrite": {
+        "^/folder/sub-folder/": "/new-folder/"
+      },
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+  }

@@ -1,0 +1,31 @@
+<h1>Lamp</h1>
+<div class="left-lamp col-sm-6" [style.visibility]="isEditing ? 'hidden' : 'visible'">
+  <div id="left-lamp-child">
+    <div id="brightness"></div>
+    <div class="toggle">
+      <label class="switch">
+        <input type="checkbox" id="checkbox-lamp" [ngModel]="lampData.status" (ngModelChange)="statusColor($event)">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+</div>
+
+<div class="right-lamp col-sm-6">
+  <ul class="">
+    <li class="tiles col-lg-2 col-xs-3" *ngFor="let color of lampData.colors; let idx = index">
+      <input readonly="true" [ngClass]="{'active': idx === lampData.active}" class="input-color" name="color-{{idx}}" [colorPicker]="color"
+        [style.background]="color" (colorPickerSelect)="changeColor(idx, $event)" (colorPickerOpen)="startEditingColor()"
+        (colorPickerClose)="colorClosed()" [cpPosition]="'bottom'" [cpOKButton]="true" [cpCancelButton]="true" [cpOKButtonClass]="'btn btn-primary btn-xs'" [cpCancelButtonClass]="'btn btn-primary btn-xs btn-cancel'"
+        [cpToggle]="!color" [cpFallbackColor]="'#ffffff'" />
+      <i class="delete far fa-trash-alt" (click)="deleteColor(idx)"></i>
+      <i [ngClass]="{'fa-dot-circle' : idx !== lampData.active , 'fa-circle': idx === lampData.active}" class="fas fa-2x circle"
+        aria-hidden="true" (click)="activeColor(idx)"></i>
+    </li>
+    <li class="add tiles col-lg-2 col-xs-3" (click)="addColor()">
+      <div class="add-color">
+        <i class="add fas fa-plus fa-2x"></i>
+      </div>
+    </li>
+  </ul>
+</div>

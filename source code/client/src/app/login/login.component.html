@@ -1,0 +1,13 @@
+<!-- <img class="logo-inlog" src="favicon.png" alt=""> -->
+<div class="login-parent">
+  <div class="login-box">
+      
+      <form>
+        <h3>Inloggen bij PWS</h3>
+        <!-- <label for="password">Wachtwoord</label> -->
+        <input type="text" id="username" name="username" placeholder="Gebruikersnaam" [(ngModel)]="username">
+        <input id="password" type="password" name="password" placeholder="Wachtwoord" [(ngModel)]="password">
+        <input type="submit" class="submit" (click)="submit()" value="Log in">
+      </form>
+  </div>
+</div>

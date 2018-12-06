@@ -1,0 +1,16 @@
+<div id="container">
+  <app-sidebar></app-sidebar>
+  <div id="content">
+    <router-outlet></router-outlet>
+  </div>
+  <li class="log-in" *ngIf="!isSignedIn">
+    <a routerLink="login">
+      <i class="fas fa-sign-in-alt fa-2x" aria-hidden="true"></i>
+    </a>
+  </li>
+  <!-- <li class="log-out" *ngIf="isSignedIn">
+    <a (click)="logout()">
+      <i class="fas fa-sign-out-alt fa-2x" aria-hidden="true"></i>
+    </a>
+  </li> -->
+</div>

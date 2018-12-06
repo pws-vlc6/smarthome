@@ -1,0 +1,22 @@
+<ul >
+  <li class="col-sm-6 animate tile" *ngFor="let data of allData$ | async; trackBy:sensorid" [ngClass]="{'video-tile': !!data.url}">
+    <div [ngClass]="'status-'+data.status">
+      <div class="nameData">{{data.displayName}}</div>
+      <ng-container *ngIf="data.name === 'rookGasSensor'">
+        <div class="middle">{{data.current?.mq2}} {{data.current?.mq7}}<span class="fa {{data.current}}"></span></div>
+        <div class="buzzerOff" *ngIf="isSignedIn && data.buzzStatus === 'on'"><a class="btn btn-primary" (click)="buttonclick(data)">Turn buzzer off</a></div>
+      </ng-container>
+      <div class="middle" *ngIf="data.name !== 'rookGasSensor' && data.name !== 'camera'">{{data.current || 'offline'}}<span class="fa {{data.current}}"></span></div>
+      <div *ngIf="data.url" class="video-live">
+        <app-video [id]="data.name" [url]="data.url"></app-video> 
+      </div>
+    </div>
+  </li>
+</ul>
+
+<!-- <ul>
+  <li *ngFor="let data of allData$">
+    <div class="nameData">{{data.displayName}}</div>
+    <div class="middle">{{data.current}}</div>
+  </li>
+</ul> -->

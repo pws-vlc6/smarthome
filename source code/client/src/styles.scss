@@ -1,0 +1,142 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+body {
+    margin: 0;
+    background: #D1D1D1;
+    font-family: 'Roboto', 'Montserrat', sans-serif;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    display: grid;
+    grid-template-rows: 100px auto;
+    height: 100%;
+    #content {
+        padding: 30px 50px;
+        @media screen and (max-width: 467px) {
+            padding: 30px 10px;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            li {
+                a {
+                    font-size: 1.5em;
+                    text-decoration: none;
+                    font-weight: normal;
+                    background-color: #00A8FF;
+                    color: #fff;
+                    border: none;
+                    transition: all .3s;
+                    &:hover {
+                        background-color: #48d4ca;
+                    }
+                }
+                ul {
+                    margin-top: 20px;
+                    li {
+                        padding: 0;
+                        a {
+                            font-size: 1em;
+                            font-weight: 300;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#brightness,
+#duration {
+    .rs-bg-color {
+        background-color: #D1D1D1;
+    }
+}
+
+#brightness,
+#duration {
+    .rs-range-color {
+        background-color: #00A8FF;
+    }
+}
+
+#brightness,
+#duration {
+    .rs-path-color {
+        background-color: rgb(149, 216, 250);
+    }
+}
+
+#brightness,
+#duration {
+    .rs-handle {
+        border-color: rgb(0, 0, 0);
+        background-color: rgb(15, 15, 15);
+    }
+}
+
+#brightness,
+#duration {
+    .rs-handle.rs-focus {
+        border-color: #00A8FF;
+    }
+}
+
+#brightness,
+#duration {
+    .rs-handle:after {
+        border-color: #00A8FF;
+        background-color: #00A8FF;
+    }
+}
+
+#brightness,
+#duration {
+    .rs-border {
+        border-color: transparent;
+    }
+}
+
+#brightness .rs-tooltip {
+    margin-top: -32px !important;
+    font-size: 30px;
+}
+
+.video-tile {
+    height: unset !important;
+}
+
+li.tiles .color-picker {
+    position: fixed !important;
+    top: 110px !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+    button.btn-cancel {
+        margin-right: 3px;
+    }
+}
+
+.arrow.arrow-bottom {
+    display: none;
+}
+
+@media screen and (min-width: 767px) {
+    li.tiles .color-picker {
+        top: 200px !important;
+        left: 25% !important;
+        transform: translateX(-50%);
+    }
+}
+::-webkit-scrollbar { 
+    display: none; 
+}

@@ -1,0 +1,48 @@
+// .rs-range-color  {
+//     background-color: #ff8d00 !important;
+// }
+li {
+    list-style: none;
+    &.log-in, &.log-out {
+        position: fixed;
+        bottom: 0;
+        margin: 0 0 20px 20px;
+        background-color: #2D2E2E;
+        border-radius: 100%;
+        z-index: 999;
+        border: 1px solid #d1d1d1;
+
+        & a {
+            color: #48D4CA;
+            display: block;
+            padding: 20px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        & i {
+            transition: all .3s;
+        }
+        &::after {
+            content: "";
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+            border-radius: 10rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            -webkit-transition: all .4s;
+            transition: all .4s;
+            background-color: #2D2E2E;
+        }  
+        &:hover::after {
+            -webkit-transform: scale(1.4, 1.4);
+                    transform: scale(1.4, 1.4);
+            opacity: 0; 
+        }
+            
+    }
+
+}

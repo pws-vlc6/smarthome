@@ -1,0 +1,47 @@
+<nav>
+  <ul class="row">
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="col-xs-4">
+      <a routerLink="/">
+        <i class="fa fa-home fa-2x"></i>
+      </a>
+    </li>
+    <li *ngIf="isSignedIn" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="col-xs-4">
+      <a routerLink="/lamp">
+        <i class="far fa-lightbulb fa-2x"></i>
+      </a>
+    </li>
+    <li *ngIf="isSignedIn" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="col-xs-4">
+      <a routerLink="/humidity">
+        <i class="fa fa-fill-drip fa-2x"></i>
+      </a>
+    </li>
+  </ul>
+  <div *ngIf="isSignedIn" class="settings" (click)="toggleMenu()">
+    <i class="fas fa-cog fa-lg"></i>
+  </div>
+  <div *ngIf="isSignedIn" class="menu" [ngClass]="{'show': toggledMenu === true, 'hide': toggledMenu === false}">
+    <ul>
+      <li (click)="toggleEditStartpage()">
+        Startpagina aanpassen
+      </li>
+      <!-- <li>
+        Kleurenschema aanpassen
+      </li> -->
+      <li (click)="logout()">
+        Uitloggen
+      </li>
+    </ul>
+  </div>
+  <div class="edit-startpage" [ngClass]="{'show': toggledStartpage === true, 'hide': toggledStartpage === false}">
+    <h4>Startpagina:</h4>
+    <form>
+      <input type="radio" [(ngModel)]="startPage" name="startPage" [value]="''">
+      Home<br>
+      <input type="radio" [(ngModel)]="startPage" name="startPage" [value]="'lamp'">
+      Lamp<br>
+      <input type="radio" [(ngModel)]="startPage" name="startPage" [value]="'humidity'">
+      Pomp<br>
+    </form>
+  </div>
+
+</nav>
