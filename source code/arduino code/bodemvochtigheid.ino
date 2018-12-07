@@ -3,6 +3,8 @@
 
 const char *ssid = "WIFI-NAME-HERE";
 const char *password = "WIFI-PASSWORD-HERE";
+const char *mqttServer = "MQTT-SERVER-ADDRESS";
+const int serverPort = MQTT-SERVER-PORT;
 unsigned long lastMillis = 0;
 WiFiClient WiFiclient;
 PubSubClient client(WiFiclient);
@@ -39,7 +41,7 @@ void setup()
     delay(2000);
 
     Serial.print("connecting to MQTT broker...");
-    client.setServer("MQTT-SERVER-ADDRESS", SERVER-PORT);
+    client.setServer(mqttServer, serverPort);
     client.setCallback(callback);
     pinMode(muxA, OUTPUT);
     pinMode(muxB, OUTPUT);
